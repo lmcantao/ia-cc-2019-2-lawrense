@@ -1,4 +1,4 @@
-import sys, resource
+import sys
 from PySide2 import QtCore
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import QApplication, QLabel, \
