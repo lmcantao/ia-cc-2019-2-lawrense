@@ -23,18 +23,16 @@ def get_desfuzzyfication(dinheiro, pessoa):
             qtd_alto = qtd_alto + 1
             valor_alto = valor_alto + x
 
+    resp = (valor_baixo * r_baixo + valor_medio * r_medio + valor_alto * r_alto) / (
+                qtd_baixo * r_baixo + qtd_medio * r_medio + qtd_alto * r_alto)
 
-    print(valor_baixo, valor_medio, valor_alto, qtd_baixo, qtd_medio, qtd_alto, valor_baixo * r_baixo + valor_medio * r_medio + valor_alto * r_baixo, qtd_baixo * r_baixo + qtd_medio * r_medio + qtd_alto * r_alto)
+    print(valor_baixo, valor_medio, valor_alto, qtd_baixo, qtd_medio, qtd_alto, resp)
 
-    resp = (valor_baixo * r_baixo + valor_medio * r_medio + valor_alto * r_alto) / (qtd_baixo * r_baixo + qtd_medio * r_medio + qtd_alto * r_alto)
 
-    if resp <= 30:
+
+    if resp <= 35:
         return "BAIXO RISCO"
-    elif resp > 30 and resp < 40:
-        return "MÉDIO_BAIXO RISCO"
-    elif resp >= 40 and resp <= 60:
+    elif resp > 35 and resp <= 65:
         return "MÉDIO RISCO"
-    elif resp > 60 and resp < 70:
-        return "MÉDIO_ALTO RISCO"
-    elif resp >= 70:
+    elif resp >= 65:
         return "ALTO RISCO"

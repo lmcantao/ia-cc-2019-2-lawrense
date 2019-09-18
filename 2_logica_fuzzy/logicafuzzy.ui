@@ -19,6 +19,9 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="moneyLabel">
+        <property name="midLineWidth">
+         <number>2</number>
+        </property>
         <property name="text">
          <string>Dinheiro (em milhões)</string>
         </property>
