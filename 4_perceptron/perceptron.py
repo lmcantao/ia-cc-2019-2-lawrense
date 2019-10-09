@@ -7,18 +7,21 @@ class Perceptron:
         w = [0, 0, 0]
         a = 1
         limiar = 0
+        epoch = 0
 
-        for k in range(0, 2):
-            for i in range(0, len(inputs)):
+        while(True):
+
+            peso1 = w[0]
+            peso2 = w[1]
+            bias = w[2]
+
+            for i in range(len(inputs)):
                 yin = 0
-                for j in range(0, len(inputs[i])):
+                for j in range(len(inputs[i])):
                     yin += inputs[i][j] * w[j]
                 yin += w[2]
 
-                peso1 = w[0]
-                peso2 = w[1]
-
-                print(yin)
+                #print(yin)
 
                 if yin > limiar:
                     y = 1
@@ -32,11 +35,12 @@ class Perceptron:
                     w[1] = w[1] + a * targets[i] * inputs[i][1]
                     w[2] = w[2] + a * targets[i]
 
-                print(w)
+                #print(w)
+            epoch += 1
+            if peso1 == w[0] and peso2 == w[1] and bias == w[2]:
+                break
 
-                if peso1 == w[0] and peso2 == w[1]:
-                    break
-        return w
+        return w,epoch
 
 
 if __name__ == '__main__':
@@ -44,4 +48,27 @@ if __name__ == '__main__':
     inputs = [[1, 1], [1, -1], [-1, 1], [-1, -1]]
     targets = [1, -1, -1, -1]
 
-    print("Weights: ", h.learn(0, inputs, targets))
+    (a,epoch) = h.learn(0, inputs, targets)
+
+    print("Inputs     Targets")
+    resp = ''
+    for i in range(0, len(inputs)):
+        resp = '['
+        for j in range(0, len(inputs[i])):
+            resp = resp + str(inputs[i][j])
+
+            if (j < len(inputs[i]) - 1):
+                resp = resp + ', '
+        resp = resp + ']        ' + str(targets[i])
+        print(resp)
+
+    print('\nWeigths')
+    resp = ''
+    for i in range(len(a)):
+        if (i == len(a) - 1):
+            resp = '   wb = ' + str(a[i])
+        else:
+            resp = '   w' + str(i) + ' = ' + str(a[i])
+        print(resp)
+
+    print('\nEpoch:', epoch)
