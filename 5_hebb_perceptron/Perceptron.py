@@ -40,40 +40,40 @@ class Perceptron:
             if peso1 == w[0] and peso2 == w[1] and bias == w[2]:
                 break
 
-        return w,epoch
+        return w, epoch
 
 
-if __name__ == '__main__':
-    h = Perceptron
-    inputs = [[1, 1], [1, 0], [0, 1], [0, 0]]
-    targets = [1, -1, -1, -1]
-
-    (a,epoch) = h.learn(0, inputs, targets)
-
-    print("Inputs     Targets")
-    resp = ''
-    espaco = ""
-    for i in range(len(inputs)):
-        resp = '['
-        for j in range(len(inputs[i])):
-            if (inputs[i][j] == 1):
-                espaco = espaco + "  "
-
-            resp = resp + str(inputs[i][j])
-
-            if (j < len(inputs[i]) - 1):
-                resp = resp + ', ' + espaco
-        resp = resp + ']       ' + str(targets[i])
-        espaco = ""
-        print(resp)
-
-    print('\nWeigths')
-    resp = ''
-    for i in range(len(a)):
-        if (i == len(a) - 1):
-            resp = '   wb = ' + str(a[i])
-        else:
-            resp = '   w' + str(i) + ' = ' + str(a[i])
-        print(resp)
-
-    print('\nEpoch:', epoch)
+# if __name__ == '__main__':
+#     h = Perceptron
+#     inputs = [[1, 1], [1, 0], [0, 1], [0, 0]]
+#     targets = [1, -1, -1, -1]
+#
+#     (a,epoch) = h.learn(0, inputs, targets)
+#
+#     print("Inputs     Targets")
+#     resp = ''
+#     espaco = ""
+#     for i in range(len(inputs)):
+#         resp = '['
+#         for j in range(len(inputs[i])):
+#             if (inputs[i][j] == 1):
+#                 espaco = espaco + "  "
+#
+#             resp = resp + str(inputs[i][j])
+#
+#             if (j < len(inputs[i]) - 1):
+#                 resp = resp + ', ' + espaco
+#         resp = resp + ']       ' + str(targets[i])
+#         espaco = ""
+#         print(resp)
+#
+#     print('\nWeigths')
+#     resp = ''
+#     for i in range(len(a)):
+#         if (i == len(a) - 1):
+#             resp = '   wb = ' + str(a[i])
+#         else:
+#             resp = '   w' + str(i) + ' = ' + str(a[i])
+#         print(resp)
+#
+#     print('\nEpoch:', epoch)
